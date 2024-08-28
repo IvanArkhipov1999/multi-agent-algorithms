@@ -39,7 +39,7 @@ class AlvpParallel(ParallelProcessing):
         logging.basicConfig(filename=loggs_path + f'/_loggs_{agent_id}_alvp.log', filemode='a', level=logging.INFO)
         x_agent = x.item((agent_id, 0))
         x_n = 1 / (gamma[0] + self.alpha * (self.mu - self.eta)) \
-              * (self.alpha * gamma[0] * nesterov_step + gamma[1] * x_agent)
+            * (self.alpha * gamma[0] * nesterov_step + gamma[1] * x_agent)
 
         # Create matrix with repeating x and x_n on main diagonal
         x = x.astype(float)

@@ -11,6 +11,7 @@ DEFAULT_PROD_FILE = DEFAULT_PATH_SAVE + "productivity_{id}.pkl"
 
 PRODUC_DISTR = 5
 
+
 class Agent:
     def __init__(
             self,

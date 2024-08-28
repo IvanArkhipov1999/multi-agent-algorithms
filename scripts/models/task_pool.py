@@ -88,7 +88,7 @@ class TaskPool:
     def distribute_poisson(self, tasks, all_tasks, num_agents):
         tasks_list = [task for subtasks in all_tasks.values() for task in subtasks]
         self.tasks = {agent_id: self.assign_tasks_to_agent(agent_id, tasks_list, assigned_tasks=tasks) for agent_id in
-                       range(num_agents)}
+                      range(num_agents)}
 
     def distribute_uniform(self, tasks, all_tasks, num_agents):
         """
