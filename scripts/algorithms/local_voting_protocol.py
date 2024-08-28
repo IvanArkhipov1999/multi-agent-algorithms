@@ -9,7 +9,7 @@ from scripts.jobs.disribute_parallel import DistributeParallel
 from scripts.models.parameters import Parameters
 from scripts.models.task import Task
 from scripts.models.task_pool import TaskPool, UNIFORM
-from scripts.utils.tools import save_pickle, upload_pickle
+from scripts.tools import save_pickle, upload_pickle
 
 DEFAULT_CACHE_PATH = "/cache/"
 DEFAULT_LOGGS_PATH = DEFAULT_CACHE_PATH + "logs/"

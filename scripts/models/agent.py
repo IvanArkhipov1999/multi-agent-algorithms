@@ -4,7 +4,7 @@ import numpy as np
 
 from scripts.models.task import Task
 from scripts.models.task_pool import TaskPool
-from scripts.utils.tools import upload_pickle, save_pickle
+from scripts.tools import upload_pickle, save_pickle
 
 DEFAULT_PATH_SAVE = "/cache/alg_params/"
 DEFAULT_PROD_FILE = DEFAULT_PATH_SAVE + "productivity_{id}.pkl"
