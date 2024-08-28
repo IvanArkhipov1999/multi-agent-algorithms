@@ -1,7 +1,7 @@
 import numpy as np
 
 from scripts.models.task import Task
-from scripts.utils import upload_pickle, save_pickle
+from scripts.utils.tools import upload_pickle, save_pickle
 
 DEFAULT_PATH_SAVE = "/cache/alg_params/"
 DEFAULT_DISTR_TASKS_FILE = DEFAULT_PATH_SAVE + "tasks_distribution_{distribution}.pkl"
