@@ -88,25 +88,25 @@ class Agent:
         to_complete = self.produc
 
         # Complete task that wasn't done fully before
-        task_compl = self.task_on_comp.compl
+        task_compl = self.task_on_comp.complexity
         if to_complete > task_compl:
             to_complete -= task_compl
             self.task_on_comp.completed_step = step
             self.task_on_comp = self.tasks.pop(0) if self.tasks else Task()
         else:
-            self.task_on_comp.compl -= to_complete
+            self.task_on_comp.complexity -= to_complete
             self.update_theta_hat()
             return
 
         # Complete other tasks
-        while self.task_on_comp.compl and to_complete - self.task_on_comp.compl > 0:
-            to_complete -= self.task_on_comp.compl
+        while self.task_on_comp.complexity and to_complete - self.task_on_comp.complexity > 0:
+            to_complete -= self.task_on_comp.complexity
             self.task_on_comp.completed_step = step
 
             self.task_on_comp = self.tasks.pop(0) if len(self.tasks) > 0 else Task()
 
         # Remember the task that wasn't done fully (maybe no task in the queue)
-        self.task_on_comp.compl = max(0, self.task_on_comp.compl - to_complete)
+        self.task_on_comp.complexity = max(0, self.task_on_comp.complexity - to_complete)
         self.update_theta_hat()
 
     def tasks_to_send(self, number: int) -> List[Task]:
@@ -139,4 +139,4 @@ class Agent:
         Count queue computing time
         :return:
         """
-        return sum([task.compl for task in self.tasks])
+        return sum([task.complexity for task in self.tasks])
