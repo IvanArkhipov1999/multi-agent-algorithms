@@ -1,9 +1,6 @@
-import numpy as np
-
 from scripts.algorithms.accelerated_local_voting_protocol import AcceleratedLVP
 from scripts.algorithms.local_voting_protocol import LocalVotingProtocol
 from scripts.algorithms.round_robin import RoundRobin
-from scripts.models.parameters import Parameters
 
 LVP = "LVP"
 ALVP = "ALVP"

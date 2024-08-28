@@ -2,6 +2,7 @@ import numpy as np
 from scripts.models.parameters import Parameters
 from scripts.algorithms.local_voting_protocol import LocalVotingProtocol
 
+
 def test_local_voting_protocol():
     generate = True
     num_agents = 5

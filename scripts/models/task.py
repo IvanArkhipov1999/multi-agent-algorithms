@@ -11,7 +11,7 @@ class Task:
     completed_step: int
         Step at which the task was completed.
     """
-    
+
     def __init__(self, step=None, complexity=0):
         """
         Initializes the task.

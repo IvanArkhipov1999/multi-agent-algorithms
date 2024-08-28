@@ -1,5 +1,6 @@
 import numpy as np
 
+
 # TODO: Finish documentation
 class Parameters:
     """

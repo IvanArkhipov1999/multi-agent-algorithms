@@ -1,6 +1,7 @@
 import os
 import pickle
 
+
 def save_pickle(var, path):
     current_path = os.path.realpath(__file__)
     project_dir = "/".join(current_path.split("/")[:-2])
