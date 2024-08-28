@@ -16,6 +16,8 @@ class Parameters:
         Productivity matrix for agents.
     theta_hat: np.matrix
         Estimations?
+    static_system: bool
+        If system static (no new tasks during work) or not
     """
     n: int
     adj: np.matrix
@@ -23,5 +25,6 @@ class Parameters:
     theta_hat: np.matrix = np.matrix([[0], [0], [0]])
     neib_add: int
     add_neib_val: float
+    static_system: bool
 
     params_dict: dict

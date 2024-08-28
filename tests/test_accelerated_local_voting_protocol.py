@@ -23,6 +23,7 @@ def test_accelerated_local_voting_protocol():
 
     pars.neib_add = 5
     pars.add_neib_val = 0.3
+    pars.static_system = False
     pars.params_dict = {
         "L": 7.1,
         "mu": 0.9,

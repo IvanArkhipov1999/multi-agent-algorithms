@@ -25,6 +25,7 @@ class LbAlgorithm:
         :param parameters: parameters of class Parameters
         """
         self.n = params.n
+        self.static_system = params.static_system
         self.agents = []
 
         # Results
@@ -64,7 +65,7 @@ class LbAlgorithm:
             self.extract_step_info(step)
 
             # Get new tasks
-            [agent.update_with_new_tasks(step) for agent in self.agents]
+            [agent.update_with_new_tasks(step, self.static_system) for agent in self.agents]
             for agent in self.agents:
                 self.sequence.append([agent.get_real_queue_length() for agent in self.agents])
                 self.result_dict[step].update({

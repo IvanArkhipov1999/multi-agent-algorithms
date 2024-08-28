@@ -22,6 +22,7 @@ def test_local_voting_protocol():
 
     pars.neib_add = 5
     pars.add_neib_val = 0.3
+    pars.static_system = False
     pars.params_dict = {
         "h": 0.2,
     }

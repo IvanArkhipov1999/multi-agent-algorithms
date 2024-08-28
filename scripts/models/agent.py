@@ -38,6 +38,7 @@ class Agent:
         self.task_on_comp = Task()
 
         self.neighb = []
+        self.generate_new_tasks = True
 
     @staticmethod
     def generate_or_upload(function, generate: bool, file: str, **kwargs) -> list:
@@ -56,15 +57,15 @@ class Agent:
         save_pickle(producs, file)
         return producs
 
-    def update_with_new_tasks(self, step: int) -> None:
+    def update_with_new_tasks(self, step: int, static_system: bool) -> None:
         """
         Append new tasks that appear at step
         """
-        new_tasks = self.get_new_tasks(step)
-        # print(f"New tasks for agent {self.id}: {len(new_tasks)}")
-        # print(len(self.tasks))
-        self.tasks.extend(new_tasks)
-        self.theta_hat += len(new_tasks)
+        if self.generate_new_tasks:
+            new_tasks = self.get_new_tasks(step)
+            self.tasks.extend(new_tasks)
+            self.theta_hat += len(new_tasks)
+        self.generate_new_tasks = not static_system
 
     def get_new_tasks(self, step: int) -> List[Task]:
         """
