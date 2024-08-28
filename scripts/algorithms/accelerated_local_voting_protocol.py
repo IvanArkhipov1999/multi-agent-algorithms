@@ -1,5 +1,3 @@
-import logging
-
 import numpy as np
 
 from scripts.algorithms.local_voting_protocol import LocalVotingProtocol

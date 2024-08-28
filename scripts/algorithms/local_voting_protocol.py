@@ -117,7 +117,7 @@ class LocalVotingProtocol(LbAlgorithm):
         # Receive tasks
         self.receive_tasks(response)
 
-        self.log(is_logging, f"Local voting protocol redistributed:")
+        self.log(is_logging, f'{"Local voting protocol redistributed:"}')
         for agent in self.agents:
             agent.update_theta_hat()
             self.log(is_logging, f"Agent {agent.id}: {agent.theta_hat}")
