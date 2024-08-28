@@ -61,10 +61,12 @@ class LocalVotingProtocol(LbAlgorithm):
         if generate_neigh:
             add_zeros = [[tuple(random.choice(zeros)) for _ in range(self.neib_add)] for _ in range(num_steps)]
 
+            b_value = lambda i, j, step: \
+                self.add_neib_val if i != j and ((i, j) in add_zeros[step] or (j, i) in add_zeros[step]) else 0
             self.adj_mat_by_step = \
                 {
                     step: self.adj_mat + [
-                        [self.b_value(add_zeros, i, j, step) for i in range(self.n)] for j in range(self.n)
+                        [b_value(i, j, step) for i in range(self.n)] for j in range(self.n)
                     ] for step in range(num_steps)
                 }
             save_pickle(self.adj_mat_by_step, neigh_file)
