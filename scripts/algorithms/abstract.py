@@ -4,6 +4,7 @@ from collections import defaultdict
 
 import numpy as np
 import pandas as pd
+import random
 
 from scripts.models.agent import Agent
 from scripts.models.parameters import Parameters
@@ -20,7 +21,7 @@ class LbAlgorithm:
     to solve load balancing problem
     """
 
-    def __init__(self, params: Parameters, **kwargs):
+    def __init__(self, params: Parameters, random_task_generate: list[int] = None, **kwargs):
         """
         :param parameters: parameters of class Parameters
         """
@@ -32,6 +33,7 @@ class LbAlgorithm:
         self.theta_hat = []
         self.sequence = []
         self.result_dict = defaultdict(lambda: {})
+        self.random_task_generate = random_task_generate
 
         # Set up logging
         file_path = os.path.realpath(__file__)
@@ -106,7 +108,7 @@ class LbAlgorithm:
     def create_agents(self, num_steps, generate, productivities):
         task_pool = self.create_task_pool(num_steps, generate)
         self.agents = [
-            Agent(id, productivities[id], num_steps=num_steps, generate=generate, task_pool=task_pool)
+            Agent(id, productivities[id], num_steps=num_steps, generate=generate, task_pool=task_pool, random_task_generate=self.random_task_generate)
             for id in range(self.n)
         ]
         self.theta_hat = np.matrix([len(agent.tasks) for agent in self.agents]).transpose()
