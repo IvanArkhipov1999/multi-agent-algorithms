@@ -20,7 +20,8 @@ class Agent:
             num_steps: int = None,
             generate: bool = True,
             task_pool: TaskPool = None,
-            prods_file_raw=DEFAULT_PROD_FILE
+            prods_file_raw=DEFAULT_PROD_FILE,
+            random_task_generate: list[int] = None
     ):
         self.id = id
 
@@ -39,6 +40,7 @@ class Agent:
 
         self.neighb = []
         self.generate_new_tasks = True
+        self.random_task_generate = random_task_generate
 
     @staticmethod
     def generate_or_upload(function, generate: bool, file: str, **kwargs) -> list:
@@ -63,9 +65,12 @@ class Agent:
         """
         if self.generate_new_tasks:
             new_tasks = self.get_new_tasks(step)
+            # print(f"New tasks for agent {self.id}: {len(new_tasks)}")
             self.tasks.extend(new_tasks)
             self.theta_hat += len(new_tasks)
-        self.generate_new_tasks = not static_system
+        if self.id == self.random_task_generate[step]:
+            print(self.random_task_generate[step])
+        self.generate_new_tasks = not static_system and self.id == self.random_task_generate[step]
 
     def get_new_tasks(self, step: int) -> List[Task]:
         """
@@ -127,7 +132,6 @@ class Agent:
         :param tasks: list of tasks
         """
         self.tasks.extend(tasks)
-        # print(f"Received tasks for agent {self.id}: {len(tasks)}")
         self.tasks = sorted(self.tasks, key=lambda x: x.step)
 
     def update_theta_hat(self) -> None:

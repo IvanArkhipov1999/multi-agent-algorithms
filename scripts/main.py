@@ -13,7 +13,7 @@ METHODS_TO_CLASSES = {
 }
 
 
-def run_load_balancing(method, num_steps, params, generate, productivities):
-    load_balancing = METHODS_TO_CLASSES[method](params=params)
+def run_load_balancing(method, num_steps, params, generate, random_task_generate, productivities):
+    load_balancing = METHODS_TO_CLASSES[method](params=params, random_task_generate=random_task_generate)
     load_balancing.run(num_steps=num_steps, generate=generate, productivities=productivities)
     return load_balancing

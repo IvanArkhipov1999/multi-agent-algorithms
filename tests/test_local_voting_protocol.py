@@ -1,4 +1,5 @@
 import numpy as np
+import random
 from scripts.models.parameters import Parameters
 from scripts.algorithms.local_voting_protocol import LocalVotingProtocol
 
@@ -26,6 +27,7 @@ def test_local_voting_protocol():
     pars.params_dict = {
         "h": 0.2,
     }
+    random_task_generate = [random.randint(0, 100) for _ in range(100)]
 
-    alg_lvp = LocalVotingProtocol(params=pars)
+    alg_lvp = LocalVotingProtocol(params=pars, random_task_generate=random_task_generate)
     alg_lvp.run(num_steps=num_steps, generate=generate, productivities=productivities)
