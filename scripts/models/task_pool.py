@@ -62,7 +62,7 @@ class TaskPool:
         """
         size = np.random.poisson(lam=SIZE_COEF * num_agents * 5 / 2 + num_agents * SIZE_BIAS) * 100 # todo: change
         # * 5
-        steps = np.random.randint(num_steps, size=size // 20)
+        steps = np.random.randint(num_steps, size=size)
         tasks = {step: [] for step in range(num_steps)}
         for step in steps:
             tasks[step].append(Task(step, abs(np.random.normal(COMPL_MEAN, COMPL_DISTR))))
