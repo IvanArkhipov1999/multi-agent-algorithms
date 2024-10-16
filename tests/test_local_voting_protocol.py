@@ -27,5 +27,5 @@ def test_local_voting_protocol():
         "h": 0.2,
     }
 
-    alg_lvp = LocalVotingProtocol(params=pars)
+    alg_lvp = LocalVotingProtocol(params=pars, random_task_generate=True)
     alg_lvp.run(num_steps=num_steps, generate=generate, productivities=productivities)

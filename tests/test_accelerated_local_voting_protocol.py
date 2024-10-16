@@ -33,5 +33,5 @@ def test_accelerated_local_voting_protocol():
         "alpha": [0.07, 0.09, 0.11][1]
     }
 
-    alg_lvp = AcceleratedLVP(params=pars)
+    alg_lvp = AcceleratedLVP(params=pars, random_task_generate=True)
     alg_lvp.run(num_steps=num_steps, generate=generate, productivities=productivities)
