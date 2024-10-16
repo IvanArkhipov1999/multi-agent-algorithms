@@ -107,7 +107,7 @@ class LbAlgorithm:
     def create_agents(self, num_steps, generate, productivities):
         task_pool = self.create_task_pool(num_steps, generate)
         self.agents = [
-            Agent(id, productivities[id], num_steps=num_steps, generate=generate, 
+            Agent(id, productivities[id], num_steps=num_steps, generate=generate,
                   task_pool=task_pool, random_task_generate=self.random_task_generate)
             for id in range(self.n)
         ]
