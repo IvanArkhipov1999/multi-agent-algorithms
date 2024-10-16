@@ -1,4 +1,5 @@
 import numpy as np
+import random
 from scripts.models.parameters import Parameters
 from scripts.algorithms.accelerated_local_voting_protocol import AcceleratedLVP
 
@@ -32,6 +33,7 @@ def test_accelerated_local_voting_protocol():
         "gamma": [[0.07, 0.09, 0.11][0]],
         "alpha": [0.07, 0.09, 0.11][1]
     }
+    random_task_generate = [random.randint(0, 100) for _ in range(100)]
 
-    alg_lvp = AcceleratedLVP(params=pars, random_task_generate=True)
+    alg_lvp = AcceleratedLVP(params=pars, random_task_generate=random_task_generate)
     alg_lvp.run(num_steps=num_steps, generate=generate, productivities=productivities)
