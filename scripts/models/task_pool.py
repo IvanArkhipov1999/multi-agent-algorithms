@@ -60,7 +60,7 @@ class TaskPool:
         Generate random number of tasks
         Returns dictionary of tasks by step
         """
-        size = np.random.poisson(lam=SIZE_COEF * num_agents * 5 / 2 + num_agents * SIZE_BIAS) * 100 # todo: change
+        size = np.random.poisson(lam=SIZE_COEF * num_agents * 5 / 2 + num_agents * SIZE_BIAS) * 100  # todo: change
         # * 5
         steps = np.random.randint(num_steps, size=size)
         tasks = {step: [] for step in range(num_steps)}

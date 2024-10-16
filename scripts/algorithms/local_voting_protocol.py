@@ -109,7 +109,6 @@ class LocalVotingProtocol(LbAlgorithm):
 
         # Compute redistribution protocol
         u_lvp = self.compute_change(step)
-        #print(f"Local voting protocol redistribution: {u_lvp}")
         self.log(is_logging, f"Local voting protocol redistribution: {u_lvp}")
         requests_dic = {ind: u for ind, u in enumerate(u_lvp) if u < 0}
 
